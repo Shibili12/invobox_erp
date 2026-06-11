@@ -1,6 +1,8 @@
 name: Build Windows EXE
 
 on:
+  push:
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -14,8 +16,9 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.22.0'
+          flutter-version: '3.24.0'
           channel: 'stable'
+          cache: true
 
       - name: Enable Windows desktop
         run: flutter config --enable-windows-desktop
@@ -29,10 +32,12 @@ jobs:
       - name: Build Windows release
         run: flutter build windows --release
 
-      - name: Zip the build output
-        run: Compress-Archive -Path build\windows\x64\runner\Release\* -DestinationPath invobox_erp_windows.zip
+      - name: Zip the build
+        shell: pwsh
+        run: |
+          Compress-Archive -Path "build\windows\x64\runner\Release\*" -DestinationPath "invobox_erp_windows.zip"
 
-      - name: Upload Windows build
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: invobox_erp_windows_build
