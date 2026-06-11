@@ -43,4 +43,3 @@ jobs:
           name: invobox_erp_windows_build
           path: invobox_erp_windows.zip
           retention-days: 7
-EOF
