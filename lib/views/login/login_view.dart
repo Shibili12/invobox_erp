@@ -30,18 +30,18 @@ class _LoginContent extends StatelessWidget {
           Expanded(
             child: Center(
               child: Container(
-                width: 380,
+                width: double.infinity,
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(14),
-                  border: Border.all(color: AppColors.cardBorder, width: 0.5),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.06),
-                      blurRadius: 20,
-                      offset: const Offset(0, 4),
-                    ),
-                  ],
+                  // borderRadius: BorderRadius.circular(14),
+                  border: Border.all(color: AppColors.cardBorder, width: 0),
+                  // boxShadow: [
+                  //   BoxShadow(
+                  //     color: Colors.black.withOpacity(0.06),
+                  //     blurRadius: 20,
+                  //     offset: const Offset(0, 4),
+                  //   ),
+                  // ],
                 ),
                 padding: const EdgeInsets.all(32),
                 child: const _LoginForm(),
